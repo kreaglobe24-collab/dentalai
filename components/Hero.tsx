@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.95] text-white">
           Nous garantissons <br />
           <span className="relative inline-block">
-            20 nouveaux patients
+            50 nouveaux patients
             <div className="absolute -bottom-2 left-0 w-full h-1 bg-orange-500/50 blur-sm"></div>
           </span> <br />
           en 30 jours ou <span className="bg-gradient-to-r from-orange-400 via-orange-600 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">vous payez 0$.</span>
