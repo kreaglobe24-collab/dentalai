@@ -2,14 +2,16 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import LogoCloud from './components/LogoCloud';
-import ValueProp from './components/ValueProp';
+import Problems from './components/Problems';
+import Onboarding from './components/Onboarding';
+import Features from './components/Features';
+import Pricing from './components/Pricing';
 import Proof from './components/Proof';
+import Security from './components/Security';
+import FAQ from './components/FAQ';
 import CTA from './components/CTA';
 import BackgroundEffects from './components/BackgroundEffects';
-import CalculatorForm from './components/CalculatorForm';
-import Infrastructure from './components/Infrastructure';
-import Onboarding from './components/Onboarding';
+import Footer from './components/Footer';
 
 const ElevenLabsConvai = 'elevenlabs-convai' as any;
 
@@ -28,30 +30,36 @@ const App: React.FC = () => {
       <Navbar />
       
       <main className="relative z-10">
-        {/* 1. HERO (Visible en un seul bloc) */}
+        {/* 1. HERO */}
         <Hero />
         
-        {/* 2. PARTENAIRES (OpenAI, Stripe, etc.) */}
-        <LogoCloud />
+        {/* 2. PROBLÈMES QUOTIDIENS */}
+        <Problems />
 
-        {/* 3. SYSTÈME D'EXPLOITATION (Taille optimisée) */}
-        <Infrastructure />
-
-        {/* 4. SOLUTIONS (Remontées pour plus d'impact) */}
-        <ValueProp />
-
-        {/* 5. PROCESSUS 1-2-3 */}
+        {/* 3. COMMENT ÇA MARCHE */}
         <Onboarding />
 
-        {/* 6. PREUVES & IMPACT */}
+        {/* 4. FONCTIONNALITÉS */}
+        <Features />
+
+        {/* 5. TARIFS */}
+        <Pricing />
+
+        {/* 6. RÉSULTATS & TÉMOIGNAGES */}
         <Proof />
 
-        {/* 7. AUDIT ROI */}
-        <CalculatorForm />
+        {/* 7. SÉCURITÉ & CONFORMITÉ */}
+        <Security />
+
+        {/* 8. FAQ */}
+        <FAQ />
         
-        {/* 8. CTA FINAL */}
+        {/* 9. CTA FINAL */}
         <CTA />
       </main>
+
+      {/* Footer */}
+      <Footer />
       
       <div className="fixed bottom-8 right-8 z-[100]">
         <ElevenLabsConvai agent-id="agent_0101ke0s3scwfrwa9nn0tyyg1kwx"></ElevenLabsConvai>
