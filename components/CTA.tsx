@@ -2,6 +2,11 @@
 import React from 'react';
 
 const CTA: React.FC = () => {
+  const handleStartTrial = () => {
+    localStorage.setItem('selectedPlan', 'Pro');
+    localStorage.setItem('hasFreeTrial', 'true');
+    window.location.href = '/signup?plan=pro';
+  };
   return (
     <section className="py-28 px-6 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/5 blur-[120px] rounded-full pointer-events-none" />
@@ -15,7 +20,10 @@ const CTA: React.FC = () => {
           Rejoignez les centaines de dentistes qui ont choisi de gagner du temps et d'augmenter leurs revenus. Installation en 5 minutes, résultats dès la première semaine.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
-          <button className="group relative px-12 py-5 bg-white text-black font-black rounded-xl hover:scale-105 active:scale-95 transition-all uppercase tracking-widest text-[11px] shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-orange-500/20 min-w-[240px]">
+          <button 
+            onClick={handleStartTrial}
+            className="group relative px-12 py-5 bg-white text-black font-black rounded-xl hover:scale-105 active:scale-95 transition-all uppercase tracking-widest text-[11px] shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-orange-500/20 min-w-[240px] cursor-pointer"
+          >
             Commencer l'essai gratuit →
           </button>
           <a href="#demo" className="px-10 py-5 bg-black border border-white/10 text-white font-bold rounded-xl hover:bg-zinc-900 transition-all text-[11px] tracking-widest uppercase hover:border-white/20 text-center min-w-[240px]">

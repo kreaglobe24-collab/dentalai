@@ -1,7 +1,11 @@
-
 import React from 'react';
 
 const Hero: React.FC = () => {
+  const handleStartTrial = () => {
+    localStorage.setItem('selectedPlan', 'Pro');
+    localStorage.setItem('hasFreeTrial', 'true');
+    window.location.href = '/signup?plan=pro';
+  };
   return (
     <section className="relative pt-28 pb-12 px-6 flex flex-col justify-center min-h-[85vh] overflow-hidden">
       {/* Dynamic Glow behind text */}
@@ -30,13 +34,13 @@ const Hero: React.FC = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-          <a 
-            href="#essai"
-            className="group relative px-10 py-5 bg-white text-black font-black rounded-xl transition-all hover:scale-105 active:scale-95 text-[11px] tracking-widest uppercase overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.1)] text-center min-w-[240px]"
+          <button 
+            onClick={handleStartTrial}
+            className="group relative px-10 py-5 bg-white text-black font-black rounded-xl transition-all hover:scale-105 active:scale-95 text-[11px] tracking-widest uppercase overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.1)] text-center min-w-[240px] cursor-pointer"
           >
             Essai gratuit 14 jours →
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-          </a>
+          </button>
           <a 
             href="#demo"
             className="px-10 py-5 bg-black border border-white/10 text-white font-bold rounded-xl hover:bg-zinc-900 transition-all text-[11px] tracking-widest uppercase hover:border-white/20 text-center min-w-[240px]"

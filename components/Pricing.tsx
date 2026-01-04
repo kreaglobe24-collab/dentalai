@@ -1,6 +1,15 @@
 import React from 'react';
 
 const Pricing: React.FC = () => {
+  const handleSelectPlan = (planName: string, hasFreeTrial: boolean) => {
+    // Stocker le plan sélectionné et si essai gratuit en localStorage
+    localStorage.setItem('selectedPlan', planName);
+    localStorage.setItem('hasFreeTrial', hasFreeTrial.toString());
+    
+    // Rediriger vers le formulaire d'inscription (à implémenter)
+    window.location.href = '/signup?plan=' + planName.toLowerCase().replace(' ', '-');
+  };
+
   const plans = [
     {
       name: 'Débutant',
@@ -14,6 +23,7 @@ const Pricing: React.FC = () => {
         'Compatible avec votre agenda',
       ],
       popular: false,
+      hasFreeTrial: true,
     },
     {
       name: 'Pro',
@@ -27,6 +37,7 @@ const Pricing: React.FC = () => {
         'Rapports d\'activité détaillés',
       ],
       popular: true,
+      hasFreeTrial: true,
     },
     {
       name: 'Complète',
@@ -41,6 +52,7 @@ const Pricing: React.FC = () => {
         'Formation de votre équipe',
       ],
       popular: false,
+      hasFreeTrial: false,
     },
   ];
 
@@ -78,6 +90,12 @@ const Pricing: React.FC = () => {
                   </div>
                 )}
 
+                {plan.hasFreeTrial && (
+                  <div className="inline-block px-4 py-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-400 text-[10px] font-mono mb-6 tracking-widest uppercase">
+                    ✓ 14 JOURS GRATUITS
+                  </div>
+                )}
+
                 <h3 className="text-3xl font-black text-white mb-2">{plan.name}</h3>
                 <p className="text-zinc-500 text-sm mb-8">{plan.description}</p>
 
@@ -89,6 +107,7 @@ const Pricing: React.FC = () => {
                 </div>
 
                 <button
+                  onClick={() => handleSelectPlan(plan.name, plan.hasFreeTrial)}
                   className={`w-full py-5 rounded-xl font-black tracking-widest uppercase text-[11px] mb-8 transition-all ${
                     plan.popular
                       ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-lg'

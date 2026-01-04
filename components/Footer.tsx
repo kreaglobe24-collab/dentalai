@@ -2,6 +2,11 @@
 import React from 'react';
 
 const Footer: React.FC = () => {
+  const handleStartTrial = () => {
+    localStorage.setItem('selectedPlan', 'Pro');
+    localStorage.setItem('hasFreeTrial', 'true');
+    window.location.href = '/signup?plan=pro';
+  };
   return (
     <footer className="bg-black border-t border-white/5 relative overflow-hidden">
       {/* Animated background elements */}
@@ -48,9 +53,12 @@ const Footer: React.FC = () => {
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000" style={{animationDelay: '100ms'}}>
             <h3 className="text-xl md:text-2xl font-black text-white mb-2">Démarrer gratuitement</h3>
             <p className="text-zinc-500 text-sm mb-6">14 jours d'accès complet. Aucune carte bancaire requise.</p>
-            <a href="#" className="inline-block px-6 py-3 bg-white text-black font-black rounded-lg hover:bg-orange-400 transition-all duration-300 text-[11px] tracking-widest uppercase hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+            <button 
+              onClick={handleStartTrial}
+              className="inline-block px-6 py-3 bg-white text-black font-black rounded-lg hover:bg-orange-400 transition-all duration-300 text-[11px] tracking-widest uppercase hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] cursor-pointer"
+            >
               Essai gratuit →
-            </a>
+            </button>
           </div>
         </div>
 
