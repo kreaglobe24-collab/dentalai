@@ -35,7 +35,7 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <section className="py-40 px-6 relative">
+    <section className="py-28 px-6 relative">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-20 animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-6 text-white">

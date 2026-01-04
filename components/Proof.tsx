@@ -27,7 +27,7 @@ const Proof: React.FC = () => {
   ];
 
   return (
-    <section id="preuve" className="py-40 px-6">
+    <section id="preuve" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20 animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-6 text-white">

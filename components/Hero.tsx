@@ -3,7 +3,7 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative pt-32 pb-16 px-6 flex flex-col justify-center min-h-[85vh] overflow-hidden">
+    <section className="relative pt-28 pb-12 px-6 flex flex-col justify-center min-h-[85vh] overflow-hidden">
       {/* Dynamic Glow behind text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-orange-500/10 blur-[150px] rounded-full animate-pulse pointer-events-none" />
 
