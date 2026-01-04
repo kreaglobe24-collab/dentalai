@@ -18,7 +18,7 @@ const ElevenLabsConvai = 'elevenlabs-convai' as any;
 
 const App: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'signup'>('home');
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -27,41 +27,19 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Fonction pour déterminer la page actuelle
-    const updatePage = () => {
-      const path = window.location.pathname;
-      const hash = window.location.hash;
-      
-      // Vérifier le pathname (pour Vercel avec rewrites)
-      if (path.includes('/signup')) {
-        setCurrentPage('signup');
-      } 
-      // Vérifier le hash (pour fallback)
-      else if (hash.includes('signup')) {
-        setCurrentPage('signup');
-      } 
-      else {
-        setCurrentPage('home');
-      }
-    };
-
-    // Appeler au montage
-    updatePage();
-
-    // Écouter les changements de route
-    window.addEventListener('popstate', updatePage);
-    window.addEventListener('hashchange', updatePage);
+    // Déterminer la page based sur pathname
+    const pathname = window.location.pathname;
     
-    // Créer un observer pour les changements de pathname
-    const observer = setInterval(() => {
-      updatePage();
-    }, 100);
+    if (pathname.includes('signup')) {
+      setCurrentPage('signup');
+    } else {
+      setCurrentPage('home');
+    }
 
-    return () => {
-      window.removeEventListener('popstate', updatePage);
-      window.removeEventListener('hashchange', updatePage);
-      clearInterval(observer);
-    };
+    // Si nous sommes en développement, log la route
+    if (import.meta.env.DEV) {
+      console.log('Current route:', pathname);
+    }
   }, []);
 
   if (currentPage === 'signup') {
