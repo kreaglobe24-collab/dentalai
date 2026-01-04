@@ -8,6 +8,8 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
+        middlewareMode: false,
+        historyApiFallback: true,
       },
       plugins: [react()],
       define: {
@@ -18,6 +20,10 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      preview: {
+        port: 3000,
+        strictPort: false,
       }
     };
 });

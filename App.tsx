@@ -10,6 +10,7 @@ import Proof from './components/Proof';
 import Security from './components/Security';
 import FAQ from './components/FAQ';
 import CTA from './components/CTA';
+import Signup from './components/Signup';
 import BackgroundEffects from './components/BackgroundEffects';
 import Footer from './components/Footer';
 
@@ -17,12 +18,38 @@ const ElevenLabsConvai = 'elevenlabs-convai' as any;
 
 const App: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [currentPage, setCurrentPage] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Simple client-side routing based on pathname
+    const path = window.location.pathname;
+    if (path.includes('/signup')) {
+      setCurrentPage('signup');
+    } else {
+      setCurrentPage('home');
+    }
+  }, []);
+
+  if (currentPage === 'signup') {
+    return (
+      <div className="relative min-h-screen selection:bg-orange-500/30 text-white bg-black font-sans antialiased overflow-x-hidden">
+        <BackgroundEffects scrollY={scrollY} />
+        <Navbar />
+        <Signup />
+        <Footer />
+        
+        <div className="fixed bottom-8 right-8 z-[100]">
+          <ElevenLabsConvai agent-id="agent_0101ke0s3scwfrwa9nn0tyyg1kwx"></ElevenLabsConvai>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen selection:bg-orange-500/30 text-white bg-black font-sans antialiased overflow-x-hidden">
@@ -66,6 +93,3 @@ const App: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default App;
