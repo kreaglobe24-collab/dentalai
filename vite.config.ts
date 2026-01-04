@@ -9,7 +9,6 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         host: '0.0.0.0',
         middlewareMode: false,
-        historyApiFallback: true,
       },
       plugins: [react()],
       define: {
@@ -24,14 +23,6 @@ export default defineConfig(({ mode }) => {
       preview: {
         port: 3000,
         strictPort: false,
-      },
-      build: {
-        rollupOptions: {
-          input: {
-            main: path.resolve(__dirname, 'index.html'),
-            signup: path.resolve(__dirname, 'public/signup.html'),
-          },
-        },
       }
     };
 });
