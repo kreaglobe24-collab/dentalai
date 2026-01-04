@@ -5,11 +5,7 @@ const CTA: React.FC = () => {
   const handleStartTrial = () => {
     localStorage.setItem('selectedPlan', 'Pro');
     localStorage.setItem('hasFreeTrial', 'true');
-    if (window.location.pathname === '/') {
-      window.location.href = '/signup?plan=pro';
-    } else {
-      window.location.href = '/#/signup?plan=pro';
-    }
+    window.location.href = '/signup?plan=pro';
   };
   return (
     <section className="py-28 px-6 relative overflow-hidden">

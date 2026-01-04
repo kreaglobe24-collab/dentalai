@@ -24,6 +24,14 @@ export default defineConfig(({ mode }) => {
       preview: {
         port: 3000,
         strictPort: false,
+      },
+      build: {
+        rollupOptions: {
+          input: {
+            main: path.resolve(__dirname, 'index.html'),
+            signup: path.resolve(__dirname, 'public/signup.html'),
+          },
+        },
       }
     };
 });

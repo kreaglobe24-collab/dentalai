@@ -4,12 +4,7 @@ const Hero: React.FC = () => {
   const handleStartTrial = () => {
     localStorage.setItem('selectedPlan', 'Pro');
     localStorage.setItem('hasFreeTrial', 'true');
-    // Essayer d'abord le pathname, sinon fallback hash
-    if (window.location.pathname === '/') {
-      window.location.href = '/signup?plan=pro';
-    } else {
-      window.location.href = '/#/signup?plan=pro';
-    }
+    window.location.href = '/signup?plan=pro';
   };
   return (
     <section className="relative pt-28 pb-12 px-6 flex flex-col justify-center min-h-[85vh] overflow-hidden">

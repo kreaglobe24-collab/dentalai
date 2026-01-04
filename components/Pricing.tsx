@@ -6,13 +6,9 @@ const Pricing: React.FC = () => {
     localStorage.setItem('selectedPlan', planName);
     localStorage.setItem('hasFreeTrial', hasFreeTrial.toString());
     
-    // Rediriger vers le formulaire d'inscription (avec fallback hash)
+    // Rediriger vers le formulaire d'inscription
     const planSlug = planName.toLowerCase().replace(' ', '-');
-    if (window.location.pathname === '/') {
-      window.location.href = '/signup?plan=' + planSlug;
-    } else {
-      window.location.href = '/#/signup?plan=' + planSlug;
-    }
+    window.location.href = '/signup?plan=' + planSlug;
   };
 
   const plans = [

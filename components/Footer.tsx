@@ -5,11 +5,7 @@ const Footer: React.FC = () => {
   const handleStartTrial = () => {
     localStorage.setItem('selectedPlan', 'Pro');
     localStorage.setItem('hasFreeTrial', 'true');
-    if (window.location.pathname === '/') {
-      window.location.href = '/signup?plan=pro';
-    } else {
-      window.location.href = '/#/signup?plan=pro';
-    }
+    window.location.href = '/signup?plan=pro';
   };
   return (
     <footer className="bg-black border-t border-white/5 relative overflow-hidden">
