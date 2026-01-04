@@ -44,15 +44,16 @@ const Problems: React.FC = () => {
               key={idx}
               className="group bg-gradient-to-br from-zinc-900/50 to-black border border-white/5 rounded-3xl p-8 hover:border-orange-500/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(249,115,22,0.1)]"
             >
-              <div className="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-500">
-                {item.icon}
+              {/* Icon placeholder */}
+              <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center mb-6 group-hover:bg-orange-500/20 transition-colors">
+                <div className="w-6 h-6 bg-orange-500 rounded-sm"></div>
               </div>
               
               <h3 className="text-2xl font-black text-white mb-4">{item.title}</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="text-orange-500 font-bold text-lg mt-1 flex-shrink-0">❌</div>
+                  <div className="text-orange-500 font-bold text-lg mt-1 flex-shrink-0">—</div>
                   <p className="text-zinc-400 leading-relaxed">{item.problem}</p>
                 </div>
                 
