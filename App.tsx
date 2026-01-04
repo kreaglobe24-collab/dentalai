@@ -27,13 +27,41 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Simple client-side routing based on pathname
-    const path = window.location.pathname;
-    if (path.includes('/signup')) {
-      setCurrentPage('signup');
-    } else {
-      setCurrentPage('home');
-    }
+    // Fonction pour déterminer la page actuelle
+    const updatePage = () => {
+      const path = window.location.pathname;
+      const hash = window.location.hash;
+      
+      // Vérifier le pathname (pour Vercel avec rewrites)
+      if (path.includes('/signup')) {
+        setCurrentPage('signup');
+      } 
+      // Vérifier le hash (pour fallback)
+      else if (hash.includes('signup')) {
+        setCurrentPage('signup');
+      } 
+      else {
+        setCurrentPage('home');
+      }
+    };
+
+    // Appeler au montage
+    updatePage();
+
+    // Écouter les changements de route
+    window.addEventListener('popstate', updatePage);
+    window.addEventListener('hashchange', updatePage);
+    
+    // Créer un observer pour les changements de pathname
+    const observer = setInterval(() => {
+      updatePage();
+    }, 100);
+
+    return () => {
+      window.removeEventListener('popstate', updatePage);
+      window.removeEventListener('hashchange', updatePage);
+      clearInterval(observer);
+    };
   }, []);
 
   if (currentPage === 'signup') {

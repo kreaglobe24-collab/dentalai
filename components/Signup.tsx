@@ -18,7 +18,17 @@ const Signup: React.FC = () => {
   useEffect(() => {
     // Récupérer le plan depuis localStorage ou URL params
     const params = new URLSearchParams(window.location.search);
-    const plan = params.get('plan');
+    let plan = params.get('plan');
+    
+    // Si pas trouvé en query string, chercher dans le hash
+    if (!plan) {
+      const hash = window.location.hash;
+      const hashMatch = hash.match(/plan=([^&]+)/);
+      if (hashMatch) {
+        plan = hashMatch[1];
+      }
+    }
+
     const trial = localStorage.getItem('hasFreeTrial') === 'true';
     
     if (plan === 'débutant') setSelectedPlan('débutant');
